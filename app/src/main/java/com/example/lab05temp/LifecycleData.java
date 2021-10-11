@@ -13,14 +13,14 @@ public class LifecycleData {
     int onDestroy  = 0;
     String duration;
     public String toString(){
-        return duration +"/n"+
-                "onCreate /t"+onCreate+"/n" +
-                "onStart /t"+onStart+"/n" +
-                "onResume /t"+onResume+"/n" +
-                "onPause /t"+onPause+"/n" +
-                "onStop /t"+onStop+"/n" +
-                "onRestart /t"+onRestart+"/n" +
-                "onDestroy /t"+onDestroy+"/n";
+        return duration +"\n"+
+                "onCreate \t\t\t\t\t"+onCreate+"\n" +
+                "onStart \t\t\t\t\t\t\t"+onStart+"\n" +
+                "onResume \t\t\t\t"+onResume+"\n" +
+                "onPause \t\t\t\t\t"+onPause+"\n" +
+                "onStop \t\t\t\t\t\t\t"+onStop+"\n" +
+                "onRestart \t\t\t\t"+onRestart+"\n" +
+                "onDestroy \t\t\t\t"+onDestroy+"\n";
     }
     //convert this instance to a String
     String toJSON(){
