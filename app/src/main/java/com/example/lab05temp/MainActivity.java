@@ -39,7 +39,22 @@ public class MainActivity extends AppCompatActivity {
         //instantiate TextViews
         currentRunTV = findViewById(R.id.curernt);
         lifeTimeTV = findViewById(R.id.lifetime);
-        //display data on TextViews
+        //get current enclosing method name
+        String currentEnclosingMethod = new Throwable()
+                .getStackTrace()[0]
+                .getMethodName();
+        //pass name to LifetimeData to update count
+        lifeTime.updateEvent(currentEnclosingMethod);
+        currentRun.updateEvent(currentEnclosingMethod);
+        storeData();
+        displayData();
+    }
+    //convert lifetime to String and store in SharedPreferences
+    public void storeData(){
+        editor.putString("lifetime",lifeTime.toJSON()).apply();
+    }
+    //display data on TextViews
+    public void displayData(){
         currentRunTV.setText(currentRun.toString());
         lifeTimeTV.setText(lifeTime.toString());
     }

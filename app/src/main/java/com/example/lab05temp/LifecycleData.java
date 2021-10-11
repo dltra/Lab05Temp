@@ -22,7 +22,7 @@ public class LifecycleData {
                 "onRestart \t\t\t\t"+onRestart+"\n" +
                 "onDestroy \t\t\t\t"+onDestroy+"\n";
     }
-    //convert this instance to a String
+    //convert this instance to a JSON String
     String toJSON(){
         Gson gson = new Gson();
         return gson.toJson(this, LifecycleData.class);
@@ -31,5 +31,31 @@ public class LifecycleData {
     static LifecycleData parseJSON(String fromSharedPreferences){
         Gson gson = new GsonBuilder().create();
         return gson.fromJson(fromSharedPreferences, LifecycleData.class);
+    }
+    void updateEvent(String eventName){
+        switch(eventName){
+            case "onCreate":
+                onCreate++;
+                break;
+            case "onStart":
+                onStart++;
+                break;
+            case "onResume":
+                onResume++;
+                break;
+            case "onPause":
+                onPause++;
+                break;
+            case "onStop":
+                onStop++;
+                break;
+            case "onRestart":
+                onRestart++;
+                break;
+            case "onDestroy":
+                onDestroy++;
+                break;
+            default:break;
+        }
     }
 }
